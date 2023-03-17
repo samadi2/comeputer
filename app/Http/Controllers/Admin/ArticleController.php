@@ -65,7 +65,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view("articles.show", compact("article"));
+    
     }
 
     /**
@@ -73,7 +73,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view("admin.articles.edit", compact("article"));
+        return route("admin.articles.edit", compact("article"));
     }
 
     /**
