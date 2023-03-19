@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Les routes de gestion du panier
+Route::get('cart', "CartController@show")->name('cart.show');
+Route::post('cart/add/{product}', "CartController@add")->name('cart.add');
+Route::get('cart/remove/{product}', "CartController@remove")->name('cart.remove');
+Route::get('cart/empty', "CartController@empty")->name('cart.empty');
 
 
 Route::get('/', function () {
