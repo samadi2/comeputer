@@ -8,7 +8,7 @@
     <div>{{ $article->content }}</div>
     <div>{{ $article->price  }}</div>
     <div>{{ $article->qte  }}</div>
-
+    <button type="submit" class="btn btn-dark">Ajoute au panier</button>
 @endsection
 
 
