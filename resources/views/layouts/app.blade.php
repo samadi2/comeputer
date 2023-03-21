@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,20 +25,20 @@
                         <img src="" alt="#">
                     </div>
                     <div class="">
-                        <ul class="flex">
-                            <li class="px-5"><a href="" class="uppercase tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Accueil</a></li>
-                            <li class="px-5"><a href="" class="uppercase tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Produits</a></li>
-                            <li class="px-5"><a href="" class="uppercase tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Contact</a></li>
+                        <ul class="flex ml-44">
+                            <li class="px-5"><a href="{{ url('/') }}" class="uppercase ml-10 tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Accueil</a></li>
+                            <li class="px-5"><a href="{{ route('articles.index') }}" class="uppercase tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Produits</a></li>
+                            <li class="px-5"><a href="{{ url('contact') }}" class="uppercase tracking-widest hover:border-b-2 border-white transition-all ease-in-out duration-75">Contact</a></li>
                         </ul>
                     </div>
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="uppercase tracking-widest">Mon Profil</a>
                     @else
-                        <div class="flex flex-col">
+                        <div class="flex flex-row">
+                            <a href="{{ route('login') }}" class="uppercase tracking-wider border-2 border-blue-500 bg-blue-500 px-2 py-1 rounded-xl hover:bg-noir hover:border-2 hover:border-blue-500 transition-all ease-in-out duration-200">Connexion</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="mb-1 uppercase tracking-wider border-2 border-blue-500 px-2 py-1 rounded-xl hover:bg-blue-500 hover:border-2 hover:border-blue-500 transition-all ease-in-out duration-200">Inscription</a>
+                                <a href="{{ route('register') }}" class="ml-2 uppercase tracking-wider border-2 border-blue-500 px-2 py-1 rounded-xl hover:bg-blue-500 hover:border-2 hover:border-blue-500 transition-all ease-in-out duration-200">Inscription</a>
                             @endif
-                            <a href="{{ route('login') }}" class="tracking-wider uppercase border-2 border-blue-500 bg-blue-500 px-2 py-1 rounded-xl hover:bg-noir hover:border-2 hover:border-blue-500 transition-all ease-in-out duration-200">Connexion</a>
                         </div>
                     @endauth
                 </div>

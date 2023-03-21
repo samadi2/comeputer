@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('/articles', [ArticleController::class, 'index'])
     ->name('articles.index');
 Route::get('/articles/{article}', [ArticleController::class, 'show'])
